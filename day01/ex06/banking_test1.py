@@ -19,5 +19,11 @@ if __name__ == "__main__":
 
     if bank.transfer('William John', 'Smith Jane', 545.0) is False:
         print('Failed')
+        bank.fix_account('William John')
+        bank.fix_account('Smith Jane')
+    else:
+        print('Success')
+    if bank.transfer('William John', 'Smith Jane', 1000.0) is False:
+        print('Failed')
     else:
         print('Success')

@@ -1,4 +1,5 @@
 def what_are_the_vars(*args, **kwargs):
+
     retObject = ObjectC()
     for x, count in zip(args, range(len(args))):
         setattr(retObject, "var_"+str(count), x)
@@ -7,13 +8,16 @@ def what_are_the_vars(*args, **kwargs):
             return None
         setattr(retObject, key, val)
     return retObject
-    
+
 
 class ObjectC(object):
+
     def __init__(self):
         pass
 
+
 def doom_printer(obj):
+
     if obj is None:
         print("ERROR")
         print("end")
@@ -23,6 +27,7 @@ def doom_printer(obj):
             value = getattr(obj, attr)
             print("{}: {}".format(attr, value))
     print("end")
+
 
 if __name__ == "__main__":
     obj = what_are_the_vars(7)

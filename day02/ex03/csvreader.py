@@ -1,7 +1,10 @@
 import re
 
+
 class CsvReader():
-    def __init__(self, filename=None, sep=',', header=False, skip_top=0, skip_bottom=0):
+
+    def __init__(self, filename=None, sep=',',
+                 header=False, skip_top=0, skip_bottom=0):
         self.filename = filename
         self.sep = sep
         self.header = header
@@ -22,7 +25,8 @@ class CsvReader():
             for line, n in zip(self.filedata, range(len(self.filedata))):
                 if len(line) > 0 and n == 0:
                     self.data.append(PATTERN.split(line)[1::2])
-                elif len(line) > 0 and n > self.skip_top and len(self.filedata) - n > self.skip_bottom:
+                elif len(line) > 0 and n > self.skip_top and \
+                        len(self.filedata) - n > self.skip_bottom:
                     self.data.append(PATTERN.split(line)[1::2])
             self.head = self.data[0]
             if not self.header:
